@@ -39,11 +39,11 @@ VoxVision is an innovative web application designed to streamline video communic
 
 **VoxVision is built with the following technologies:**
 
-**- HTML5**: Providing the structure and content of the web application.
-**- CSS3**: Styling the interface and enhancing the user experience.
-**- JavaScript**: Implementing interactive features and functionality.
-**- WebRTC**: Enabling real-time communication for video calls between users.
-**- Agora Signaling SDK**: Facilitating signaling for establishing connections in the VoxVision application.
+**- HTML5**: Providing the structure and content of the web application.<br>
+**- CSS3**: Styling the interface and enhancing the user experience.<br>
+**- JavaScript**: Implementing interactive features and functionality.<br>
+**- WebRTC**: Enabling real-time communication for video calls between users.<br>
+**- Agora Signaling SDK**: Facilitating signaling for establishing connections in the VoxVision application.<br>
 
 * []()
 

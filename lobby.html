@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="lobby.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+</head>
+<body>
+    <header id="home" data-aos="fade-left" data-aos-duration="1500">
+        <nav>
+            <img src="logo.png" alt="" class="logo">
+            <ul>
+                <li>Home</li>
+                <li>About</li>
+                <li>Services</li>
+                <li>Contact Us</li>
+            </ul>
+        </nav>
+    </header>
+    <div class="cont-room">
+    <main id="lobby-container" class="container">
+
+        <div id="form-container" class="row justify-content-center">
+            <div id="form__container__header" class="col-md-10 text-center" data-aos="fade-right" data-aos-duration="2500">
+                <h1>Join a room</h1>
+            
+
+            <div id="form__content__wrapper">
+                <form id="join-form">
+                    <input type="text" name="invite_link" placeholder="Enter Room code" required/>
+                    <button>Join room</button>
+                </form>
+            </div>
+            <p1>OR</p1>
+            <h2>Create a room</h2>
+            <div class="create-room">
+                
+                
+                <div class="butt-gen">
+                <button class="generate" id="generate" onclick="generate()">generate a code</button>
+                </div>
+                <div class="gen-code">
+                    <input type="text" class="generate-inp" placeholder="generated code" id="generated-inp">
+                    <button class="copy" onclick="copy()">copy</button>
+                </div>
+            </div>
+        </div>
+        </div>
+
+    </main>
+</div>
+
+<div class="sec-cont" data-aos="zoom-in-up" data-aos-duration="1500">
+    <h1 class="about">About Us</h1>
+    <hr>
+
+    <center><p class="desc">VoxVision: Streamlined Video and Audio Connectivity</p></center>
+
+    
+    <h2>How It Works:</h2>
+    <ol class="steps">
+        <li>Generate a unique room code.</li>
+        <li>Share the code with your participants.</li>
+        <li>Participants join the call using the room code.</li>
+    </ol>
+
+    <p class="cta">Start connecting today with VoxVision's intuitive interface and convenient features. Elevate your communication experience now!</p>
+</div>
+
+
+   
+
+</body>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+    AOS.init();
+  </script>
+
+<script>
+
+    let form = document.getElementById('join-form')
+    form.addEventListener('submit', (e) => {
+        e.preventDefault()
+        let inviteCode = e.target.invite_link.value
+        window.location = `index.html?room=${inviteCode}`
+    })
+
+</script>
+
+<script>
+    function copy(){
+        let copytext = document.getElementById('generated-inp');
+
+        copytext.select();
+        copytext.setSelectionRange(0,99999);
+        navigator.clipboard.writeText(copytext.value);
+        alert("copied the text:" + copytext.value);
+    }
+
+    //generate random string
+    function generate() {
+        const length = 4; // Length of the random string
+        const randomString = generateRandomString(length);
+        document.getElementById('generated-inp').value = randomString;
+    }
+
+    function generateRandomString(length) {
+        const characters = '1234567890';
+        let result = '';
+
+        for (let i = 0; i < length; i++) {
+            const randomIndex = Math.floor(Math.random() * characters.length);
+            result += characters.charAt(randomIndex);
+        }
+
+        return result;
+    }
+</script>
+</html>
